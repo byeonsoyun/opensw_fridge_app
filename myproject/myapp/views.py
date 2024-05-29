@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from .models import Food
+from .serializers import FoodSerializer
 
-# Create your views here.
+class FoodViewSet(viewsets.ModelViewSet):
+    queryset = Food.objects.all()
+    serializer_class = FoodSerializer
 
-from django.http import HttpResponse
-
-def index(request):
-    return HttpResponse("Hello, world. you're at the index page")
